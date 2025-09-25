@@ -1,0 +1,47 @@
+# =========================
+# Unity Generated Files
+# =========================
+Temp/
+Obj/
+Library/
+Logs/
+MemoryCaptures/
+Build/
+Builds/
+UserSettings/
+
+# =========================
+# Visual Studio / Rider / VSCode
+# =========================
+.vscode/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.unityproj
+*.ide
+*.sln.docstates
+
+# =========================
+# OS Generated Files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Optional / Personal Config
+# =========================
+# Nếu có config cá nhân, nên tạo template và commit
+# Ví dụ: config.example.json
+*.json
+*.env

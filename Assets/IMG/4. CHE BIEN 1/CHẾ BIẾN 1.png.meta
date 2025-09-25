@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 42b30c10f1274494a86529f4b7b6aff8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1775438834039602848
+    second: "CH\u1EBE BI\u1EBEN 1_0"
+  - first:
+      213: 6276128240398173273
+    second: "CH\u1EBE BI\u1EBEN 1_1"
+  - first:
+      213: 7035522100753558836
+    second: "CH\u1EBE BI\u1EBEN 1_2"
+  - first:
+      213: 7225158790651094988
+    second: "CH\u1EBE BI\u1EBEN 1_3"
+  - first:
+      213: 7486267833248541483
+    second: "CH\u1EBE BI\u1EBEN 1_4"
+  - first:
+      213: -50488382448990386
+    second: "CH\u1EBE BI\u1EBEN 1_5"
+  - first:
+      213: 7292767186680219740
+    second: "CH\u1EBE BI\u1EBEN 1_6"
+  - first:
+      213: -6593859333902944869
+    second: "CH\u1EBE BI\u1EBEN 1_7"
+  - first:
+      213: -5000598562893491582
+    second: "CH\u1EBE BI\u1EBEN 1_8"
+  - first:
+      213: -5405818186942331913
+    second: "CH\u1EBE BI\u1EBEN 1_9"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 74
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061c2a089cf5c57e0800000000000000
+      internalID: -1775438834039602848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_1"
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 80
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9540bbdd169491750800000000000000
+      internalID: 6276128240398173273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_2"
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 134
+        width: 80
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d63d8231233a160800000000000000
+      internalID: 7035522100753558836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_3"
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 2
+        width: 66
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7ac8ab3abe44460800000000000000
+      internalID: 7225158790651094988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_4"
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 0
+        width: 78
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b663e2ee094e760800000000000000
+      internalID: 7486267833248541483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_5"
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 5
+        width: 34
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4708da6511ac4ff0800000000000000
+      internalID: -50488382448990386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_6"
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 134
+        width: 80
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5803b71e1d153560800000000000000
+      internalID: 7292767186680219740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_7"
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 2
+        width: 66
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9532df1fd7ed74a0800000000000000
+      internalID: -6593859333902944869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_8"
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 3
+        width: 93
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2829762f91e4a9ab0800000000000000
+      internalID: -5000598562893491582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "CH\u1EBE BI\u1EBEN 1_9"
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 3
+        width: 48
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3c4fe000daaf4b0800000000000000
+      internalID: -5405818186942331913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "CH\u1EBE BI\u1EBEN 1_0": -1775438834039602848
+      "CH\u1EBE BI\u1EBEN 1_1": 6276128240398173273
+      "CH\u1EBE BI\u1EBEN 1_2": 7035522100753558836
+      "CH\u1EBE BI\u1EBEN 1_3": 7225158790651094988
+      "CH\u1EBE BI\u1EBEN 1_4": 7486267833248541483
+      "CH\u1EBE BI\u1EBEN 1_5": -50488382448990386
+      "CH\u1EBE BI\u1EBEN 1_6": 7292767186680219740
+      "CH\u1EBE BI\u1EBEN 1_7": -6593859333902944869
+      "CH\u1EBE BI\u1EBEN 1_8": -5000598562893491582
+      "CH\u1EBE BI\u1EBEN 1_9": -5405818186942331913
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
