@@ -11,7 +11,6 @@ public class Razor : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        originalPosition = transform.position;
     }
     private void Update()
     {
@@ -27,6 +26,7 @@ public class Razor : MonoBehaviour
             {
                 isDragging = true;
                 offset = transform.position - mousePos;
+                originalPosition = transform.position;
             }
         }
         if (Input.GetMouseButton(0))

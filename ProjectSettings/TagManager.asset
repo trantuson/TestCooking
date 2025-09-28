@@ -12,6 +12,7 @@ TagManager:
   - CuttingBoard
   - Water
   - Razor
+  - PosPointOnion
   layers:
   - Default
   - TransparentFX

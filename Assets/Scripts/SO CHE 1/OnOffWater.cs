@@ -11,6 +11,7 @@ public class OnOffWater : MonoBehaviour
     [SerializeField] private GameObject waterFalse;
 
     private bool isOn = false;
+    private bool wasSnapped = false;
 
     private void Start()
     {
@@ -28,24 +29,39 @@ public class OnOffWater : MonoBehaviour
                 ToggleWater();
             }
         }
-        if(blockWater.isBlocked == true && isOn == true)
-        {
-            water.SetActive(true);
-        }
-        else if(blockWater.isBlocked == false)
-        {
-            water.SetActive(false);
-        }
-        //if(blockWater.isBlocked == false && blockWater.checkBlock == true)
-        //{
-        //    water.SetActive(false);
-        //    waterFalse.SetActive(true);
-        //}
+        HandleWaterState();
     }
     private void ToggleWater()
     {
         isOn = !isOn;
         waterTop.SetActive(isOn);
+    }
+    private void HandleWaterState()
+    {
+        if (isOn && blockWater.isSnapped)
+        {
+            // Vòi bật + nắp đóng -> nước chảy
+            water.SetActive(true);
+            waterFalse.SetActive(false);
+            wasSnapped = true;
+        }
+        else if (!blockWater.isSnapped)
+        {
+            // Vòi bật + nắp mở
+            if (wasSnapped) // chỉ khi trước đó có đóng nắp
+            {
+                StartCoroutine(ShowWaterFalse());
+                wasSnapped = false;
+            }
+
+            water.SetActive(false);
+        }
+    }
+    private IEnumerator ShowWaterFalse()
+    {
+        waterFalse.SetActive(true);
+        yield return new WaitForSeconds(1.5f); // hiệu ứng nước rút 0.5s
+        waterFalse.SetActive(false);
     }
     private Vector3 GetMouseWorldPosition()
     {
