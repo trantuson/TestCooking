@@ -1,56 +1,48 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class KnifeMaskFollow : MonoBehaviour
+public class KnifeMaskFollow : DraggableBase
 {
-    //public FruitCut target;
+    [SerializeField] private Transform PointBoard;
+    private Vector3 placedPosition;
+    [SerializeField] private float distanceCheck = 0.3f;
+    private bool isPlaced = false;
+    [SerializeField] private GameObject sss;
+    [SerializeField] private float cutStep = 0.1f; 
+    private float currentCutOffset = 0f;
+    [SerializeField] private float maxCutDistance = 1f;
 
-    //void Update()
-    //{
-    //    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    mousePos.z = 0;
-    //    transform.position = mousePos;
-
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        target.CutAt(mousePos);
-    //    }
-    //}
-
-    public FruitCut target;
-    //private Vector2? lastPos = null;
-
-    //void Update()
-    //{
-    //    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    mousePos.z = 0;
-    //    transform.position = mousePos;
-
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        if (lastPos != null)
-    //        {
-    //            target.CutBetween(lastPos.Value, mousePos);
-    //        }
-    //        lastPos = mousePos;
-    //    }
-    //    else
-    //    {
-    //        lastPos = null; // reset khi thả chuột
-    //    }
-    //}
-
-
-    void Update()
+    protected override void Update()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        transform.position = mousePos;
+        base.Update();
 
-        if (Input.GetMouseButtonDown(0)) // bấm một lần
+        if (isPlaced)
         {
-            target.CutHorizontalAt(mousePos);
+            if (Input.GetMouseButtonDown(0)) // click chuột trái
+            {
+                currentCutOffset += cutStep;
+                if (currentCutOffset >= maxCutDistance)
+                    sss.SetActive(false);
+
+                // click ddeer di chuyen
+                transform.position = placedPosition + new Vector3(currentCutOffset, 0, 0);
+            }
         }
     }
-
+    protected override bool CheckCorrectDropZone()
+    {
+        if (isPlaced) return false;
+        return Vector2.Distance(transform.position, PointBoard.position) <= distanceCheck;
+    }
+    protected override void OnDropSuccess()
+    {
+        transform.position = PointBoard.position;
+        placedPosition = transform.position;
+        isPlaced = true;
+    }
+    protected override void OnDropFail()
+    {
+        transform.position = startPosition;
+    }
 }

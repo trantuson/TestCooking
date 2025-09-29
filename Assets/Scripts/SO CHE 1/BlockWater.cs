@@ -22,7 +22,6 @@ public class BlockWater : MonoBehaviour
         transform.position = mousePos;
 
         float distance = Vector2.Distance(transform.position, drainagePoint.position);
-        Debug.Log("Distance = " + distance);
         if (distance <= snapDistance)
         {
             isSnapped = true;
