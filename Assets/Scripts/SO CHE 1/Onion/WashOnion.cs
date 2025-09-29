@@ -19,7 +19,7 @@ public class Onion : DraggableBase
     protected override void Start()
     {
         base.Start();
-        currentBasePosition = startPosition;
+        currentBasePosition = startLocalPosition;
     }
 
     protected override void Update()
@@ -75,7 +75,7 @@ public class Onion : DraggableBase
     protected override void OnDropFail()
     {
         if (stage == 0)
-            transform.position = startPosition;
+            transform.position = transform.parent.TransformPoint(startLocalPosition);
         else if (stage == 1)
             transform.position = PointWater.position;
 

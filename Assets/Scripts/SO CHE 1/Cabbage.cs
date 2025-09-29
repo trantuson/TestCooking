@@ -13,6 +13,6 @@ public class Cabbage : DraggableBase
     }
     protected override void OnDropFail()
     {
-        transform.position = startPosition;
+        transform.position = transform.parent.TransformPoint(startLocalPosition);
     }
 }

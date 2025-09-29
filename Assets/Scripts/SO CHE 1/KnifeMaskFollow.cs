@@ -43,6 +43,6 @@ public class KnifeMaskFollow : DraggableBase
     }
     protected override void OnDropFail()
     {
-        transform.position = startPosition;
+        transform.position = startLocalPosition;
     }
 }

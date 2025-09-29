@@ -2,14 +2,16 @@ using UnityEngine;
 
 public abstract class DraggableBase : MonoBehaviour
 {
-    protected Vector3 startPosition;
+    protected Vector3 startLocalPosition; // sửa
+    protected Transform originalParent; // lưu vị trí parent gốc
     protected bool isDragging;
     private Vector3 offset;
     private int originalSortingOrder;
 
     protected virtual void Start()
     {
-        startPosition = transform.position;
+        startLocalPosition = transform.localPosition;
+        originalParent = transform.parent; // lưu parent gốc
     }
 
     protected virtual void Update()
@@ -64,7 +66,7 @@ public abstract class DraggableBase : MonoBehaviour
     protected virtual void OnDropSuccess() { }
     protected virtual void OnDropFail()
     {
-        transform.position = startPosition;
+        transform.position = transform.parent.TransformPoint(startLocalPosition);
     }
 
     protected abstract bool CheckCorrectDropZone();

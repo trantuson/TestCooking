@@ -14,6 +14,7 @@ UserSettings/
 # Visual Studio / Rider / VSCode
 # =========================
 .vscode/
+.vs/
 *.csproj
 *.sln
 *.suo
@@ -30,6 +31,7 @@ UserSettings/
 *.unityproj
 *.ide
 *.sln.docstates
+
 
 # =========================
 # OS Generated Files
