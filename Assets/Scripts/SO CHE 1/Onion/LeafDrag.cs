@@ -2,47 +2,46 @@ using UnityEngine;
 
 public class LeafDrag : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     private Onion onionParent;
     private Vector3 mousePosition;
     private Vector3 originalPosition;
     [SerializeField] private float distanceMouse = 2f;
     [SerializeField] private float speed = 0.2f;
-
+    Vector3 offset;
     [SerializeField] private Transform pointLeafTarget;
     void Start()
     {
         animator = GetComponent<Animator>();
-        onionParent = GetComponentInChildren<Onion>();
+        onionParent = GetComponentInParent<Onion>();
     }
     private void OnMouseDown()
     {
+        mousePosition = GetMousePos();
+        offset = transform.position - mousePosition;
         originalPosition = transform.position;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
     void OnMouseDrag()
     {
-        if (onionParent.stage >= 2)
-        {
-            Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (currentMousePosition.y - mousePosition.y > distanceMouse)
-            {
-                Vector3 newPos = Vector3.MoveTowards(transform.position, pointLeafTarget.position, Time.deltaTime * speed);
-                transform.position = newPos;
-                animator.SetBool("LeafScale", true);
-            }
-        }
+        // if (onionParent.stage >= 2)
+        // {
+        //     animator.SetBool("LeafScale", true);
+        // }
+        animator.SetBool("LeafScale", true);
     }
     void OnMouseUp()
     {
         animator.SetBool("LeafScale", false);
-        if (DistanceTarget() <= 1f)
-        {
-            Debug.Log("Da cham Distance");
-        }
     }
-    private float DistanceTarget()
+    private Vector3 GetMousePos()
     {
-        return Vector2.Distance(transform.position, pointLeafTarget.position);
+        Vector3 pos = Input.mousePosition;
+        pos.z = Mathf.Abs(Camera.main.transform.position.z);
+        return Camera.main.ScreenToWorldPoint(pos);
+    }
+    public void StartAnimEvent()
+    {
+        animator.SetBool("LeafPosition", true);
+        Destroy(gameObject,2f);
     }
 }

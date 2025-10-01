@@ -23,8 +23,12 @@ public class KnifeMaskFollow : DraggableBase
             {
                 currentCutOffset += cutStep;
                 if (currentCutOffset >= maxCutDistance)
+                {
                     sss.SetActive(false);
-
+                    transform.position = startLocalPosition;
+                    isPlaced = false;
+                    currentCutOffset = 0;
+                }
                 // click ddeer di chuyen
                 transform.position = placedPosition + new Vector3(currentCutOffset, 0, 0);
             }
@@ -43,6 +47,6 @@ public class KnifeMaskFollow : DraggableBase
     }
     protected override void OnDropFail()
     {
-        transform.position = startLocalPosition;
+        transform.position = transform.parent.TransformPoint(startLocalPosition);
     }
 }

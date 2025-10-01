@@ -1,21 +1,19 @@
-using System.Collections.Generic;
-using NUnit.Framework.Constraints;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class Onion : DraggableBase
 {
-    [SerializeField] private Transform PointWater;
-    [SerializeField] private Transform PointCuttingBoard;
+    [SerializeField] private Transform[] dropPoints;   // danh sách các điểm có thể thả
     [SerializeField] private Transform destroyTarget;
     [SerializeField] private float snapDistance = 0.5f;
     [SerializeField] private float shakeAmount = 0.05f;
 
+    private bool hasTriggeredShake = false;
     private Vector3 currentBasePosition;
 
-    public int stage = 0;
     private bool isShaking = false;
     private float shakeTimer = 3f;
+
     protected override void Start()
     {
         base.Start();
@@ -25,8 +23,7 @@ public class Onion : DraggableBase
     protected override void Update()
     {
         base.Update();
-        if (stage >= 2)
-            return;
+
         if (isShaking)
         {
             if (shakeTimer > 0)
@@ -39,62 +36,68 @@ public class Onion : DraggableBase
                 isShaking = false;
                 if (destroyTarget != null)
                     Destroy(destroyTarget.gameObject);
+                hasTriggeredShake = false;
             }
         }
     }
 
     protected override bool CheckCorrectDropZone()
     {
-        if (stage == 0)
+        // Kiểm tra xem có điểm nào trong dropPoints nằm trong khoảng snap không
+        foreach (Transform point in dropPoints)
         {
-            return Vector2.Distance(transform.position, PointWater.position) <= snapDistance;
-        }
-        else if (stage == 1)
-        {
-            return Vector2.Distance(transform.position, PointCuttingBoard.position) <= snapDistance;
+            if (Vector2.Distance(transform.position, point.position) <= snapDistance)
+            {
+                return true;
+            }
         }
         return false;
     }
 
     protected override void OnDropSuccess()
     {
-        if (stage == 0)
+        // Snap tới điểm gần nhất
+        Transform nearest = null;
+        float minDist = Mathf.Infinity;
+
+        foreach (Transform point in dropPoints)
         {
-            transform.position = PointWater.position;
-            currentBasePosition = PointWater.position;
-            stage = 1;
+            float dist = Vector2.Distance(transform.position, point.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                nearest = point;
+            }
         }
-        else if (stage == 1)
+
+        if (nearest != null)
         {
-            transform.position = PointCuttingBoard.position;
-            currentBasePosition = PointCuttingBoard.position;
-            stage = 2;
+            transform.position = nearest.position;
+            currentBasePosition = nearest.position;
         }
     }
 
     protected override void OnDropFail()
     {
-        if (stage == 0)
-            transform.position = transform.parent.TransformPoint(startLocalPosition);
-        else if (stage == 1)
-            transform.position = PointWater.position;
-
-        currentBasePosition = transform.position;
+        // nếu không đúng điểm nào thì quay lại chỗ cũ nhất (currentBasePosition)
+        transform.position = currentBasePosition;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Water"))
+        if (collision.CompareTag("Water") && !hasTriggeredShake)
         {
             Debug.Log("Va cham");
+            hasTriggeredShake = true;
             StartCoroutine(TimeDelayShake(2f));
         }
     }
+
     private IEnumerator TimeDelayShake(float time)
     {
         yield return new WaitForSeconds(time);
         Debug.Log("Het 2s");
         isShaking = true;
-        shakeTimer = 3f;
+        shakeTimer = 2f;
     }
 }
