@@ -13,6 +13,9 @@ TagManager:
   - Water
   - Razor
   - PosPointOnion
+  - Nao
+  - Cuttable
+  - CutSlice
   layers:
   - Default
   - TransparentFX

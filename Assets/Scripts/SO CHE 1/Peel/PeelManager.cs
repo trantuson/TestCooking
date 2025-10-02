@@ -4,25 +4,26 @@ public class PeelManager : MonoBehaviour
 {
     [Header("Knife Settings")]
     public float cutRadius = 50f;
-    public ParticleSystem peelParticlesPrefab; // gán prefab trong Inspector
+    public float returnSpeed = 10f;
+    public ParticleSystem peelParticlesPrefab;
 
-    private ParticleSystem peelParticlesInstance; // instance dùng runtime
+    private ParticleSystem peelParticlesInstance;
     private Vector3 offset;
     private PeelableObject currentTarget;
 
     private Vector3 lastPos;
     private bool isDragging = false;
-    private Vector3 startPosition;
+    private Vector3 startLocalPosition;
 
     void Start()
     {
-        startPosition = transform.position;
+        startLocalPosition = transform.localPosition;
 
-        // tạo particle pool
         if (peelParticlesPrefab != null)
         {
             peelParticlesInstance = Instantiate(peelParticlesPrefab);
             peelParticlesInstance.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
             var main = peelParticlesInstance.main;
             main.simulationSpace = ParticleSystemSimulationSpace.World;
         }
@@ -30,54 +31,72 @@ public class PeelManager : MonoBehaviour
 
     void Update()
     {
+        Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mp.z = transform.position.z;
+
+        // --- Bắt đầu kéo dao ---
         if (Input.GetMouseButtonDown(0))
         {
-            // Raycast chỉ bắt layer "Knife" (dao)
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, LayerMask.GetMask("Knife"));
+            RaycastHit2D hit = Physics2D.Raycast(mp, Vector2.zero, 0f, LayerMask.GetMask("Knife"));
+            // chỉ bắt khi click trực tiếp vào dao
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
-                Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mp.z = transform.position.z;
                 offset = transform.position - mp;
-
                 lastPos = transform.position;
                 isDragging = true;
             }
         }
 
+        // --- Khi đang kéo ---
         if (Input.GetMouseButton(0) && isDragging)
         {
-            Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mp.z = transform.position.z;
             transform.position = mp + offset;
 
-            if (currentTarget != null)
+            if (currentTarget != null && !currentTarget.isFinished)
             {
                 CutAlongLine(lastPos, transform.position);
+
+                if (currentTarget.isFinished)
+                {
+                    // Gọt xong -> dừng kéo, dao auto quay về
+                    isDragging = false;
+                    currentTarget = null;
+                }
             }
 
             lastPos = transform.position;
         }
 
+        // --- Khi thả chuột ---
         if (Input.GetMouseButtonUp(0) && isDragging)
         {
             isDragging = false;
             currentTarget = null;
-            transform.position = startPosition;
+        }
+
+        // --- Khi không kéo -> dao quay về ---
+        if (!isDragging)
+        {
+            transform.localPosition = Vector3.MoveTowards(
+                transform.localPosition,
+                startLocalPosition,
+                returnSpeed * Time.deltaTime
+            );
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PeelableObject peel = collision.GetComponent<PeelableObject>();
-        if (peel != null) currentTarget = peel;
+        if (peel != null && !peel.isFinished) 
+            currentTarget = peel;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         PeelableObject peel = collision.GetComponent<PeelableObject>();
-        if (peel != null && peel == currentTarget) currentTarget = null;
+        if (peel != null && peel == currentTarget) 
+            currentTarget = null;
     }
 
     private void CutAlongLine(Vector3 start, Vector3 end)
@@ -89,20 +108,18 @@ public class PeelManager : MonoBehaviour
         {
             Vector3 pos = Vector3.Lerp(start, end, i / (float)steps);
 
-            if (currentTarget != null)
+            if (currentTarget != null && !currentTarget.isFinished)
             {
                 currentTarget.CutAtPosition(pos, cutRadius);
 
-                // particle
                 if (peelParticlesInstance != null)
                 {
                     var emit = new ParticleSystem.EmitParams();
                     emit.position = new Vector3(pos.x, pos.y, transform.position.z);
                     emit.startColor = currentTarget.peelParticleColor;
-                    peelParticlesInstance.Emit(emit, 3); // giảm số particle
+                    peelParticlesInstance.Emit(emit, 3);
                 }
             }
         }
     }
 }
-

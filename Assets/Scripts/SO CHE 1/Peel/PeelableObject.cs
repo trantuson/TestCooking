@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class PeelableObject : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PeelableObject : MonoBehaviour
     [HideInInspector] public Texture2D peelTexture;
     private int totalPixels;
     private int clearedPixels;
-    private bool isFinished = false;
+    public bool isFinished = false;
 
     private bool textureDirty = false; // flag: có pixel nào vừa được sửa
 
