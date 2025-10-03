@@ -1,49 +1,29 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class OnionPeelManager : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer onionRenderer;
-    [SerializeField] private Sprite[] peelStages; // [0] nguyên, [n] bóc sạch
-
-    private int currentStage = 0;
-    private Vector3 lastMousePos;
-    private bool dragging = false;
-
-    void Update()
+    [SerializeField] GameObject lan1;
+    [SerializeField] GameObject lan2;
+    private int clickCount = 0;
+    // Hàm này bạn gọi khi bấm nút
+    private void OnMouseDown()
     {
-        // CLICK: mỗi lần click tăng stage
-        if (Input.GetMouseButtonDown(0))
+        clickCount++;
+
+        if (clickCount == 5)
         {
-            NextPeelStage();
+            // Bật Lan1
+            lan1.SetActive(true);
+
+            // Hiệu ứng scale nảy lên
+            lan1.transform.localScale = Vector3.zero;
+            lan1.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         }
 
-        // DRAG: nếu kéo xuống thì tăng stage
-        if (Input.GetMouseButtonDown(0))
+        if (clickCount == 10)
         {
-            dragging = true;
-            lastMousePos = Input.mousePosition;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            dragging = false;
-        }
-        if (dragging)
-        {
-            Vector3 delta = Input.mousePosition - lastMousePos;
-            if (delta.y < -30f) // kéo xuống đủ xa
-            {
-                NextPeelStage();
-                lastMousePos = Input.mousePosition;
-            }
-        }
-    }
-
-    private void NextPeelStage()
-    {
-        if (currentStage < peelStages.Length - 1)
-        {
-            currentStage++;
-            onionRenderer.sprite = peelStages[currentStage];
+            lan2.SetActive(false);
         }
     }
 }

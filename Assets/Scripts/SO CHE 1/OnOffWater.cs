@@ -10,7 +10,7 @@ public class OnOffWater : MonoBehaviour
     [SerializeField] private GameObject water;
     [SerializeField] private GameObject waterFalse;
 
-    private bool isOn = false;
+    public bool isOn = false;
     private bool wasSnapped = false;
 
     private void Start()
