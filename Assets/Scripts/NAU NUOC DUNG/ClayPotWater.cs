@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ClayPotWater : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     public OnOffWater onOffWater;
     public DragDropManager dragDropManager;
     [SerializeField] private GameObject water;
@@ -17,6 +18,7 @@ public class ClayPotWater : MonoBehaviour
         {
             isWaterTrue = true;
             water.SetActive(true);
+            animator.SetTrigger("OnWaterClay");
         }
     }
 }

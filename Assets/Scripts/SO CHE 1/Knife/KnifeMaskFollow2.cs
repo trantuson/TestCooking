@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class KnifeMaskFollow2 : DraggableBase
 {
@@ -37,6 +38,8 @@ public class KnifeMaskFollow2 : DraggableBase
         if (!isPlaced) return;
 
         if (!Input.GetMouseButtonDown(0)) return;
+        // 👉 hiệu ứng dao chém lên xuống
+        //DoCutAnimation();
 
         if (currentTargetChild == null) AcquireTargetAtBoard();
         if (currentTargetChild == null) return;
@@ -59,7 +62,7 @@ public class KnifeMaskFollow2 : DraggableBase
             {
                 currentTargetChild.SetActive(false);
             }
-            
+
             ResetKnife();
         }
     }
@@ -136,4 +139,17 @@ public class KnifeMaskFollow2 : DraggableBase
             currentTargetParent = chosenChild.transform.parent;
         }
     }
+    // private void DoCutAnimation()
+    // {
+    //     // nhún xuống rất nhẹ
+    //     Vector3 downPos = transform.position + Vector3.down * 0.05f;
+
+    //     transform.DOMove(downPos, 0.12f)
+    //         .SetEase(Ease.InOutSine)
+    //         .OnComplete(() =>
+    //         {
+    //             transform.DOMove(placedPosition + new Vector3(currentCutOffset, 0f, 0f), 0.12f)
+    //                     .SetEase(Ease.InOutSine);
+    //         });
+    // }
 }

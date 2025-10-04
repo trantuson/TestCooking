@@ -16,6 +16,7 @@ TagManager:
   - Nao
   - Cuttable
   - CutSlice
+  - PepperGroup
   layers:
   - Default
   - TransparentFX

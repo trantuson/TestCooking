@@ -18,8 +18,16 @@ public class DragDropManager : DraggableBase
         isPointTarget = true;
         // Bay vào vị trí đích
         transform.DOMove(pointWater.position, 0.3f)
-             .SetEase(Ease.OutBack);
+        .SetEase(Ease.OutBack)
+        .OnComplete(() =>
+        {
+            // Sau khi bay vào, giảm scale XY một xíu cho giống như nằm trong nồi
+            transform.DOScale(new Vector3(0.8f, 0.8f, transform.localScale.z), 0.2f)
+                     .SetEase(Ease.InOutSine);
+        });
 
+    // Punch nhẹ để có cảm giác thả xuống
+    transform.DOPunchScale(Vector3.one * 0.1f, 0.2f, 4, 0.3f);
     }
     protected override void OnDropFail()
     {
@@ -28,8 +36,10 @@ public class DragDropManager : DraggableBase
              .SetEase(Ease.InOutSine)
              .OnComplete(() =>
              {
+                // Scale trở lại kích thước gốc
+                transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.InOutSine);
                  // Sau khi bay về chỗ cũ thì lắc ngang
-                transform.DOShakePosition(0.3f, new Vector3(0.2f, 0, 0), 10, 90);
+                 transform.DOShakePosition(0.3f, new Vector3(0.2f, 0, 0), 10, 90);
                  // Nếu trong nồi có nước thì disable drag sau khi quay về
                 if (clayPotWater.isWaterTrue == true)
                 {
