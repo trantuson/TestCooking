@@ -7,11 +7,16 @@ public class Pepper : DraggableBase
     [SerializeField] CountOBJ countOBJ;
     [SerializeField] private Transform pointClay;
     [SerializeField] private Transform potPoint;        // Vị trí nồi
-    [SerializeField] private Transform spawnPoint;      // Miệng hộp
     [SerializeField] private GameObject pepperGroupPrefab; // Prefab cả nhóm hạt tiêu
 
     private bool isShaking = false;
 
+    private Vector3 worldStartPos; //Lưu vị trí gốc theo world
+    protected override void Start()
+    {
+        base.Start();
+        worldStartPos = transform.position; // lưu vị trí ban đầu
+    }
     protected override bool CheckCorrectDropZone()
     {
         return Vector2.Distance(transform.position, pointClay.position) <= 2f;
@@ -39,12 +44,7 @@ public class Pepper : DraggableBase
 
         yield return new WaitForSeconds(0.3f);
 
-        // 👉 Spawn nguyên cụm hạt tiêu
-        GameObject pepperGroup = Instantiate(pepperGroupPrefab, potPoint.position, Quaternion.identity);
-
-        // (Optional) hiệu ứng scale cho cả cụm tiêu khi spawn
-        pepperGroup.transform.localScale = Vector3.zero;
-        pepperGroup.transform.DOScale(0.7f, 0.5f).SetEase(Ease.OutBack);
+        pepperGroupPrefab.SetActive(true);
 
         // 👉 Thêm vào mảng ingredients của Cooking script
         var cooking = FindFirstObjectByType<Cooking>();
@@ -56,11 +56,8 @@ public class Pepper : DraggableBase
         // Xong rồi trả hộp về
         yield return new WaitForSeconds(0.5f);
         transform.DORotate(Vector3.zero, 0.3f).SetEase(Ease.OutBack);
-
-        // Reset về vị trí ban đầu
-        Vector3 worldStartPos = transform.parent.TransformPoint(startLocalPosition);
-        transform.DOMove(worldStartPos, 0.5f).SetEase(Ease.InOutQuad);
-
+        transform.DOMove(worldStartPos, 0.6f).SetEase(Ease.InOutQuad);
+        
         isShaking = false;
         // 👉 Chỉ cho đổ 1 lần
         GetComponent<Collider2D>().enabled = false;

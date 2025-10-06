@@ -18,7 +18,9 @@ public class Cooking : MonoBehaviour
 
     [Header("Chicken Cooking")]
     [SerializeField] private GameObject chicken;        // object thịt gà
-    [SerializeField] private GameObject botMo; 
+    [SerializeField] private GameObject botMo;
+    [SerializeField] private GameObject checkNext;
+
 
     private bool isCooking = false;
     private bool isCookingChicken = false;
@@ -68,7 +70,7 @@ public class Cooking : MonoBehaviour
 
 
         finalDish.SetActive(true);
-        animBeefHT.OnAnimBeefHT();
+        //animBeefHT.OnAnimBeefHT();
         waterTrue.SetActive(true);
 
 
@@ -147,6 +149,8 @@ public class Cooking : MonoBehaviour
 
         transform.localScale = originalScale;
         transform.localPosition = originalPos;
+
+        checkNext.SetActive(true);
 
         // // Ẩn chicken
         // if (chicken != null)

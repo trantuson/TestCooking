@@ -6,8 +6,6 @@ public class LeafDrag : MonoBehaviour
     private Onion onionParent;
     private Vector3 mousePosition;
     private Vector3 originalPosition;
-    [SerializeField] private float distanceMouse = 2f;
-    [SerializeField] private float speed = 0.2f;
     Vector3 offset;
     [SerializeField] private Transform pointLeafTarget;
     void Start()

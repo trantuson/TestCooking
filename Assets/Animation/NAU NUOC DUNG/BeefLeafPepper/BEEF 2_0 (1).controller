@@ -37,10 +37,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6092501708932609361}
-    m_Position: {x: 140, y: 230, z: 0}
+    m_Position: {x: 430, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8663713784906624677}
-    m_Position: {x: 340, y: 50, z: 0}
+    m_Position: {x: 370, y: -70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -60,7 +60,7 @@ AnimatorController:
   m_Name: BEEF 2_0 (1)
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: BeefHTY 0
+  - m_Name: BeefHTY
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -88,7 +88,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: BeefHTY 0
+    m_ConditionEvent: BeefHTY
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8663713784906624677}

@@ -6,7 +6,7 @@ public class AnimBeefHT : MonoBehaviour
 
     public void OnAnimBeefHT()
     {
-        animator.SetTrigger("BeefHT");
+        animator.SetTrigger("BeefHTY");
     }
     public void AnimaEventBeef()
     {
