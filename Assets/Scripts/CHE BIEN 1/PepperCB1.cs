@@ -1,10 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 
-public class Pepper : DraggableBase
+public class PepperCB1 : DraggableBase
 {
-    [SerializeField] CountOBJ countOBJ;
     [SerializeField] private Transform pointClay;
     [SerializeField] private GameObject pepperGroupPrefab; // Prefab cả nhóm hạt tiêu
 
@@ -40,13 +39,6 @@ public class Pepper : DraggableBase
         yield return new WaitForSeconds(0.3f);
 
         pepperGroupPrefab.SetActive(true);
-
-        // 👉 Thêm vào mảng ingredients của Cooking script
-        var cooking = FindFirstObjectByType<Cooking>();
-        if (cooking != null)
-        {
-            countOBJ.obIndex++;
-        }
 
         // Xong rồi trả hộp về
         yield return new WaitForSeconds(0.5f);

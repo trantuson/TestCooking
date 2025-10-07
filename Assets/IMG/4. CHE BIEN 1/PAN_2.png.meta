@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 2bb1d33d3ea03c046a2d814bbb6be6d7
+guid: efbb4e53f03c32345a630a312cb577ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8795993365450206529
-    second: OIL 3_0
+      213: 2873905461836342906
+    second: PAN_2_0
   - first:
-      213: -7848761611870219037
-    second: OIL 3_1
-  - first:
-      213: -3272052259615793318
-    second: OIL 3_2
+      213: -7539110998143806889
+    second: PAN_2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -145,57 +142,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OIL 3_0
+      name: PAN_2_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1923
+        width: 11
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a766fca7ac922e720800000000000000
+      internalID: 2873905461836342906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PAN_2_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 20
-        width: 331
-        height: 185
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14d2a5adc55a11a70800000000000000
-      internalID: 8795993365450206529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OIL 3_1
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 74
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e4d0c506e8931390800000000000000
-      internalID: -7848761611870219037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OIL 3_2
-      rect:
-        serializedVersion: 2
-        x: 158
         y: 0
-        width: 84
-        height: 21
+        width: 2062
+        height: 1780
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5f16135ec55792d0800000000000000
-      internalID: -3272052259615793318
+      spriteID: 752d569bd72bf5790800000000000000
+      internalID: -7539110998143806889
       vertices: []
       indices: 
       edges: []
@@ -224,9 +199,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OIL 3_0: 8795993365450206529
-      OIL 3_1: -7848761611870219037
-      OIL 3_2: -3272052259615793318
+      PAN_2_0: 2873905461836342906
+      PAN_2_1: -7539110998143806889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
 
 public class LevelChecker : MonoBehaviour
 {
@@ -27,9 +29,13 @@ public class LevelChecker : MonoBehaviour
         {
             // Gọi chỉ 1 lần duy nhất
             isCompleted = true;
-
-            Debug.Log("✅ Màn đã hoàn thành → Qua màn kế tiếp!");
-            levelManager.NextLevel();
+            
+            StartCoroutine(WaitNextStep());
         }
+    }
+    IEnumerator WaitNextStep()
+    {
+        yield return new WaitForSeconds(3f);
+        levelManager.NextLevel();
     }
 }
